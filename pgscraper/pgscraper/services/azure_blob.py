@@ -8,3 +8,6 @@ def save(response):
     blob_name=response.url.split("/")[-1] + '.html'
     blob = BlobClient.from_connection_string(conn_str, container_name, blob_name)
     blob.upload_blob(data=response.body)
+    return {
+            'item': blob_name
+        }
